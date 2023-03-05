@@ -3,18 +3,8 @@ import CartItem from './CartItem'
 
 export default function CartModal(props) {
 
-    const [cart, setCart] = React.useState([])
-    console.log(props.toAdd)
-
-    if (props.toAdd) {
-        setCart(prevCart => {
-            return [
-                ...prevCart, props.toAdd
-            ]
-        })
-    }
     
-    let cartItems = cart.length > 0 && cart.map(item => {
+    let cartItems = props.cartItems.length > 0 && props.cartItems.map(item => {
         const price = item.special ? item.special : item.retail
             return (
                 <CartItem
@@ -33,7 +23,7 @@ export default function CartModal(props) {
         <div className="cart-modal">
             <h3>Cart</h3>
             <div className="cart-contents">
-                {cart.length < 1 && <p key="0" className="empty-cart">Your cart is empty.</p>}
+                {props.cartItems.length < 1 && <p key="0" className="empty-cart">Your cart is empty.</p>}
                 {cartItems}
                 <button className="add-to-cart pointer">Checkout</button>
             </div>

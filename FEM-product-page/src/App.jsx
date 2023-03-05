@@ -24,16 +24,27 @@ export default function App() {
     special: 125
   }
 
-  const[toAdd, setToAdd] = React.useState()
-  function updateCart(product) {
-    setToAdd(product)
+  const [cart, setCart] = React.useState([])
+
+  function updateCart(product, qty) {
+    setCart(prevCart => {
+      const index = prevCart.findIndex(x => x.sku === product.sku)
+      if (index === -1) {
+        product.qty = qty
+        return [...prevCart, product]
+      }
+      if (index >= 0) {
+        prevCart[index].qty = qty + prevCart[index].qty
+        return [...prevCart]
+      }
+    })
   }
   
   return (
     <div className="App">
-      <Header width={width} toggleCart={toggleCart}/>
+      <Header width={width} toggleCart={toggleCart} cartItems={cart}/>
       <main>
-        {showCart && <><CartModal showCart={showCart} toAdd={toAdd} /><div className="disabled disabled-bump" onClick={toggleCart}></div></>}
+        {showCart && <><CartModal showCart={showCart} cartItems={cart} /><div className="disabled disabled-bump" onClick={toggleCart}></div></>}
         <ProductDetails product={product} width={width} setToAdd={updateCart} />
       </main>
     </div>

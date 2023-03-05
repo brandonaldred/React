@@ -51,7 +51,7 @@ export default function ProductDetails(props) {
                         <p>{qty}</p>
                         <img onClick={()=> addSubtract(false)} className="pointer" src="/images/icon-plus.svg" />
                     </div>
-                    <button className="add-to-cart pointer" onClick={()=>props.setToAdd(props.product) }><span>Add to cart</span></button>
+                    <button className="add-to-cart pointer" onClick={()=>props.setToAdd(props.product, qty) }><span>Add to cart</span></button>
                 </div>
             </div>
         </div>
