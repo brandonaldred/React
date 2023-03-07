@@ -30,18 +30,3 @@ export default function CartModal(props) {
         </div>
     )
 }
-
-/*
-    [ 
-        { 
-            sku: 1111,
-            brand: 'sneaker company',
-            title: 'fall limited edition sneakers',
-            description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they\'ll withstand everything the weather can offer.',
-            images: ['/image-product-1', '/image-product-2', '/image-product-3', '/image-product-4'],
-            retail: 250,
-            special: 125,
-            qty: 0
-        }
-    ]
-*/

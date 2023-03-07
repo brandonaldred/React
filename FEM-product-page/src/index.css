@@ -393,6 +393,17 @@ ul li {
     width: 85px;
     border-radius: var(--Border-Radius);
   }
+  .product-image-thumbnail:hover {
+    cursor: pointer;
+    border: 3px solid var(--Orange);
+    opacity: 0.8;
+  }
+
+  .selected {
+    border: 3px solid var(--Orange) !important;
+    opacity: 0.8 !important;
+  }
+
   .product-images {
     position: relative;
     width: 40%;
@@ -400,10 +411,12 @@ ul li {
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 25px;
+    column-gap: 25px;
   }
 
   .product-description-container {
     width: 50%;
+    align-self: flex-start;
   }
 
   .product-description-container h1 {

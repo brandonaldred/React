@@ -1,22 +1,12 @@
 import React from 'react'
 import ImageModal from './ImageModal'
+import Photos from './Photos'
 
 export default function ProductDetails(props) {
-    const [imgNumber, setImgNumber] = React.useState(0)
     const [qty, setQty] = React.useState(1)
     function addSubtract(i) {
         setQty(prev =>  i ? (prev > 1 ? prev - 1 : 1) : (prev +1))
       }
-
-    function changeImg(i) {
-        setImgNumber(prevImg => {
-            if (i === 'prev') {
-                return imgNumber < (props.product.images.length - 1) ? (prevImg + 1) : 0
-            } else{
-                return imgNumber > 0 ? (prevImg - 1) : (props.product.images.length - 1)
-            }
-        })
-    }
 
     const modal = false
 
@@ -24,19 +14,7 @@ export default function ProductDetails(props) {
         <>
         {modal && <ImageModal images={props.product.images} title={props.product.title} />}
         <div className="product-details-container">
-            <div className="product-images">
-                <div className="img-scroll img-scroll-left pointer" onClick={() => {changeImg('prev')}}>
-                    <img src="/images/icon-previous.svg" />
-                </div>
-                <div className="img-scroll img-scroll-right pointer" onClick={() => {changeImg('next')}}>
-                    <img src="/images/icon-next.svg" />
-                </div>
-                <img className="product-image-main" src={`images${props.product.images[imgNumber]}.jpg`} alt={props.product.title} />
-                <img className="product-image-thumbnail selected" src={`images${props.product.images[0]}-thumbnail.jpg`} alt={props.product.title} />
-                <img className="product-image-thumbnail selected" src={`images${props.product.images[1]}-thumbnail.jpg`} alt={props.product.title} />
-                <img className="product-image-thumbnail selected" src={`images${props.product.images[2]}-thumbnail.jpg`} alt={props.product.title} />
-                <img className="product-image-thumbnail selected" src={`images${props.product.images[3]}-thumbnail.jpg`} alt={props.product.title} />
-            </div>
+            <Photos images={props.product.images} alt={props.product.title} />
             <div className="product-description-container">
                 <h2>{props.product.brand}</h2>
                 <h1>{props.product.title}</h1>

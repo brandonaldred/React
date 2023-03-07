@@ -19,7 +19,7 @@ export default function App() {
     brand: 'sneaker company',
     title: 'fall limited edition sneakers',
     description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they\'ll withstand everything the weather can offer.',
-    images: ['/image-product-1', '/image-product-2', '/image-product-3', '/image-product-4'],
+    images: ['/image-product-1', '/image-product-2', '/image-product-3', '/image-product-4',],
     retail: 250,
     special: 125
   }
@@ -28,7 +28,7 @@ export default function App() {
 
   function updateCart(product, qty) {
     setCart(prevCart => {
-      const index = prevCart.findIndex(x => x.sku === product.sku)
+      const index = prevCart.findIndex(item => item.sku === product.sku)
       if (index === -1) {
         product.qty = qty
         return [...prevCart, product]
