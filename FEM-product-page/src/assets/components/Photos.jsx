@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function Photos (props) {
     const [imgNumber, setImgNumber] = React.useState(0)
+    
     function changeImg(i) {
         setImgNumber(prevImg => {
             if (i === 'prev') {
@@ -12,20 +13,20 @@ export default function Photos (props) {
         })
     }
 
-
     const imgThumbnails = props.images.map((img, index) => {
-        return <img key={index} className="product-image-thumbnail" src={`images${img}-thumbnail.jpg`} alt={props.alt} onClick={() => {setImgNumber(index)}} />
+        return <img key={index} onClick={()=>{setImgNumber(index)}} className="product-image-thumbnail" src={`images${img}-thumbnail.jpg`} />
+        
     })
     return (
         <div className="product-images">
-                <div className="img-scroll img-scroll-left pointer" onClick={() => {changeImg('prev')}}>
-                    <img src="/images/icon-previous.svg" />
-                </div>
-                <div className="img-scroll img-scroll-right pointer" onClick={() => {changeImg('next')}}>
-                    <img src="/images/icon-next.svg" />
-                </div>
-                <img className="product-image-main" src={`images${props.images[imgNumber]}.jpg`} alt={props.alt} />
-                {imgThumbnails}
+            <div className="img-scroll img-scroll-left pointer" onClick={() => {changeImg('prev')}}>
+                <img src="/images/icon-previous.svg" />
             </div>
+            <div className="img-scroll img-scroll-right pointer" onClick={() => {changeImg('next')}}>
+                <img src="/images/icon-next.svg" />
+            </div>
+            <img onClick={props.toggleModal} className={`product-image-main ${props.width > 999 && 'pointer'}`} src={`images${props.images[imgNumber]}.jpg`} alt={props.alt} />
+            {imgThumbnails}
+        </div>
     )
 }

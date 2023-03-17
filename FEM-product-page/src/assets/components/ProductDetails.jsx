@@ -1,5 +1,4 @@
 import React from 'react'
-import ImageModal from './ImageModal'
 import Photos from './Photos'
 
 export default function ProductDetails(props) {
@@ -7,14 +6,10 @@ export default function ProductDetails(props) {
     function addSubtract(i) {
         setQty(prev =>  i ? (prev > 1 ? prev - 1 : 1) : (prev +1))
       }
-
-    const modal = false
-
     return (
         <>
-        {modal && <ImageModal images={props.product.images} title={props.product.title} />}
         <div className="product-details-container">
-            <Photos images={props.product.images} alt={props.product.title} />
+            <Photos toggleModal={props.toggleModal} width={props.width} images={props.product.images} alt={props.product.title} />
             <div className="product-description-container">
                 <h2>{props.product.brand}</h2>
                 <h1>{props.product.title}</h1>

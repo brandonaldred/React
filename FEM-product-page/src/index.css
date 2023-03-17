@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 :root {
-    --Orange: hsl(26, 100%, 55%);
+    --Orange: rgb(255, 125, 26);
     --Pale-Orange: hsl(27, 100%, 71%);
     --Pale-Orange-Fade: hsla(27, 100%, 71%, 0.35);
     --Very-Dark-Blue: hsl(220, 13%, 13%);
@@ -207,6 +207,12 @@ ul li {
 }
 
 .img-scroll {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.img-scroll, .modal-scroll {
   background-color: var(--White);
   position: absolute;
   height: 50px;
@@ -215,9 +221,6 @@ ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  bottom: 0;
-  margin: auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -306,6 +309,10 @@ ul li {
   height: 50px;
   font-weight: 600;
   font-size: 1.25em;
+}
+
+.image-modal-container {
+  display: none;
 }
 
 @media (min-width: 1000px) {
@@ -404,14 +411,22 @@ ul li {
     opacity: 0.8 !important;
   }
 
-  .product-images {
-    position: relative;
-    width: 40%;
+  .product-images, .modal-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 25px;
     column-gap: 25px;
+  }
+
+  .modal-images {
+    width: 600px;
+    position: relative;
+  }
+
+  .product-images {
+    width: 40%;
+    position: relative;
   }
 
   .product-description-container {
@@ -446,6 +461,44 @@ ul li {
 
   .product-images .img-scroll {
     display: none;
+  }
+
+  .image-modal-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    background: hsla(0, 0%, 0%, 0.75);
+  }
+
+  .image-modal-close {
+    margin-left: 580px;
+    display: block;
+    height: 20px;
+  }
+
+  .image-modal-close:hover {
+    filter: invert(69%) sepia(88%) saturate(3827%) hue-rotate(347deg) brightness(101%) contrast(101%);
+    cursor: pointer;
+  }
+
+  .image-modal-container .product-image-main {
+    width: 100%;
+  }
+
+  .modal-scroll {
+    top: 325px;
+  }
+
+  .modal-scroll-left {
+    left: -25px;
+  }
+  .modal-scroll-right {
+    right: -25px;
   }
 
 }
