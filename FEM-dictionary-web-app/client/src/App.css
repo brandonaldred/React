@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;800&family=Inter:wght@400;700;800&family=Lora:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+:root {
+  --black-900: hsl(0,0%,2%);
+  --black-800: hsl(0,0%,12%);
+  --black-700: hsl(0,0%,18%);
+  --black-600: hsl(0,0%,23%);
+  --gray-400: hsl(0,0%,51%);
+  --gray-300: hsl(0,0%,91%);
+  --gray-200: hsl(0,0%,96%);
+  --white: hsl(0,0%,100%);
+  --purple: hsl(274,82%,60%);
+  --red: hsl(0,100%,66%);
+  --serif: 'Lora', serif;
+  --sans: 'Inter', sans-serif;
+  --mono: 'Inconsolata', monospace;
+}
+
+
+#root {
+  max-width: 765px;
+  margin: auto;
+  padding: 50px 25px;
+}
+
+[data-theme='light'] {
+  transition: 600ms;
+  background-color: var(--white);
+  color: var(--black-900);
+}
+
+[data-theme='dark'] {
+  transition: 600ms;
+  background-color: var(--black-900);
+  color: var(--white);
+}
+ 
+[data-font="sans"] {
+  font-family: var(--sans);
+} 
+
+[data-font="serif"] {
+  font-family: var(--serif);
+}
+
+[data-font="mono"] {
+  font-family: var(--mono);
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+}
+
+label span {
+  display: block;
+  width: 40px;
+  height: 20px;
+  background-color: var(--red);
+  border-radius: 10px;
+  position: relative;
+}
+
+label span::before {
+  position: absolute;
+  background-color: var(--white);
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  z-index: 5;
+  content: '';
+  width: 14px;
+  height: 15px;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+[data-theme="dark"] path {
+  stroke: var(--purple);
+}
+
+.font-select {
+  width: 100px;
+  margin-right: 25px;
+}
+
+body {
+  width: 100vw;
+  background-color: var(--background);
+}
