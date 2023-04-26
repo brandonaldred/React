@@ -8,7 +8,7 @@ export default function PhotoModal(props) {
             if (i === 'prev') {
                 return imgNumber < (props.product.images.length - 1) ? (prevImg + 1) : 0
             } else{
-                return imgNumber > 0 ? (prevImg - 1) : (props.product.images.length - 1)
+                return imgNumber > 0 ? (prevImg + 1) : (props.product.images.length - 1)
             }
         })
     }
