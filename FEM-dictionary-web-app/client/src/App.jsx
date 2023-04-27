@@ -1,43 +1,69 @@
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import tokens from './assets/design-tokens.tokens.json'
 import { useState } from 'react'
-import logo from './assets/iconoir_book.svg'
-import modeIcon from './assets/iconoir_half-moon.svg'
+import Header from './assets/components/header'
+import search from './assets/iconoir_search.svg'
+import playButton from './assets/play-button.svg'
 import './App.css'
 
 // theme selection is based on user input - dark, light//
-// font options are based on user input - serif, sans, mono //
-// font size options are based on screen size - s, m, l //
+// font aoptionss are based on user input - serif, sans, mono //
+// font size optionss are based on screen size - s, m, l //
 
 
 function App() {
   const [ theme, setTheme ] = useState('light')
   const isDark = theme === 'dark' ? true : false
-  
 
   function toggleMode(bool) {
     setTheme(bool ? 'light' : 'dark')
   }
 
-  document.documentElement.dataset.theme = theme;
+  const [ font, setFont ] = useState('sans')
+
+  document.documentElement.dataset.theme = theme
+  document.documentElement.dataset.font = font
+
+  const [word, setWord] = useState('')
+
+  function runSearch(e) {
+    //perform search
+    console.log(e)
+    //empty searchbar
+    setWord('');
+  }
 
   return (
-      <header>
-        <img class="logo" src={logo} alt="Dictionary Web App" />
-          <select class="font-select">
-            <option>Sans</option>
-            <option>Serif</option>
-            <option>Mono</option>
-          </select>
-          <label>
-            <span></span>
-            <input type="checkbox" onChange={() => { toggleMode(isDark) }} />
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M1 10.449C0.998458 12.8283 1.80169 15.1383 3.27914 17.0033C4.75659 18.8683 6.82139 20.1788 9.13799 20.7218C11.4545 21.2647 13.8866 21.0082 16.039 19.994C18.1912 18.9797 19.9373 17.2673 20.9931 15.1352C11.5442 15.1352 6.85799 10.4479 6.85799 1C5.09842 1.87311 3.61767 3.22033 2.58266 4.88981C1.54765 6.5593 0.999502 8.48469 1 10.449Z" stroke="currentcolor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </label> 
-      </header>
+      <>
+        <Header isDark={isDark} toggleMode={toggleMode} font={font} />
+        <label id="search">
+          <input value={word} type="text" onChange={(e)=> {setWord(e.target.value)}} onSubmit={(e) => {runSearch(e)}} />
+          <img src={search}  onClick={()=>{runSearch(word)}}/>
+        </label>
+        <main>
+          <h2>word</h2>
+          <p>pronunciation</p>
+          <img src={playButton} />
+          <h3>type</h3>
+          <h4>Meaning</h4>
+          <ul>
+            <li>meaning 1</li>
+            <li>meaning 2</li>
+            <li>meaning 3</li>
+          </ul>
+          <h4>Synonyms <span>word synonym</span></h4>
+          <h3>type</h3>
+          <ul>
+            <li>meaning 1</li>
+            <li>meaning 2</li>
+            <li>meaning 3</li>
+          </ul>
+          <hr />
+          <p>Source <span>www.sourceURL</span></p>
+        </main>
+      </>
+        
+
   )
 }
 
