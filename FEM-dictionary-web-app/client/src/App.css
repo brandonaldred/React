@@ -224,3 +224,26 @@ header {
 #search img:hover {
   cursor: pointer;
 }
+
+audio::-webkit-media-controls-timeline-container, audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+audio::-webkit-media-controls-play-button {
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+audio::-webkit-media-controls-panel {
+  opacity: 50;
+}

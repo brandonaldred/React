@@ -12,7 +12,20 @@ const FontOptions = () => {
     )
   }
 
-export default function Header(props) {
+export default function Header() {
+
+  const [ theme, setTheme ] = useState('light')
+  const isDark = theme === 'dark' ? true : false
+
+  function toggleMode(bool) {
+    setTheme(bool ? 'light' : 'dark')
+  }
+
+  const [ font, setFont ] = useState('sans')
+
+  document.documentElement.dataset.theme = theme
+  document.documentElement.dataset.font = font
+
     const FontOptions = () => { 
         return(
           <div className="fontOptions">
@@ -27,11 +40,11 @@ export default function Header(props) {
         <header>
             <img className="logo" src={logo} alt="Dictionary Web App" />
             <div className="font-select">
-                <button data-font={props.font} onClick={() => {setShowOptions(!showOptions)}}>Sans Serif <img src={arrow}  /></button>
+                <button data-font={font} onClick={() => {setShowOptions(!showOptions)}}>Sans Serif <img src={arrow}  /></button>
                 {showOptions && <FontOptions />}
             </div>
             <label className="switch">
-                <input id="modeSelector" type="checkbox" onChange={() => { props.toggleMode(props.isDark) }} />
+                <input id="modeSelector" type="checkbox" onChange={() => { toggleMode(isDark) }} />
                 <span htmlFor="modeSelector" className="slider"></span>
             </label>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
