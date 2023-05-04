@@ -1,10 +1,7 @@
-import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import { useState, useEffect } from 'react'
 import Header from './assets/components/Header'
 import Search from './assets/components/Search'
 import Body from './assets/components/Body'
-import playButton from './assets/play-button.svg'
 import './App.css'
 
 // theme selection is based on user input - dark, light//

@@ -10,6 +10,8 @@
   --gray-200: hsl(0,0%,96%);
   --white: hsl(0,0%,100%);
   --purple: hsl(274,82%,60%);
+  --purple-light: hsla(274,82%,60%, 0.5);
+  --purple-med: hsla(274,82%,60%, 0.7);
   --red: hsl(0,100%,66%);
   --serif: 'Lora', serif;
   --sans: 'Inter', sans-serif;
@@ -86,6 +88,61 @@ body {
 [data-theme="dark"] #search input {
   background-color: var(--black-800);
   color: var(--white);
+}
+
+[data-theme="dark"] h2::after {
+  background-color: var(--black-600);
+}
+
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  position: relative;
+  font-style: italic;
+  margin: 2.8rem auto;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: var(--gray-300);
+  width: 85%;
+  height:1px;
+  right: 0;
+  top: 50%;
+}
+
+h3 {
+  color: var(--gray-400);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+ul {
+  margin: 25px auto 50px auto;
+  padding-left: 25px;
+}
+
+li {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  list-style: none;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+li::before {
+  content: "\2022";
+  color: var(--purple);
+  display: inline-block;
+  width: 18px;
+  margin-left: -18px;
 }
 
 .switch input {
@@ -191,7 +248,7 @@ header {
 #search {
   width: 100%;
   position: relative;
-  margin-top: 35px;
+  margin: 35px auto;
   height: auto;
 }
 
@@ -246,4 +303,34 @@ audio::-webkit-media-controls-play-button {
 
 audio::-webkit-media-controls-panel {
   opacity: 50;
+}
+
+.phonetic {
+  color: var(--purple);
+  font-size: 1.3rem;
+}
+
+.play-button {
+  position: relative;
+  width: 4.15rem;
+  height: 4.15rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: var(--purple-light);
+  float: right;
+  margin-top: 20px;
+}
+
+.play-button:hover {
+  cursor: pointer;
+  background-color: var(--purple-med);
+}
+
+.play-button img {
+  display: block;
+  position: absolute;
+  left: 40%;
 }
