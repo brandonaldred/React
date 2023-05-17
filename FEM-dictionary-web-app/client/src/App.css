@@ -60,15 +60,15 @@ body {
   color: var(--white);
 }
  
-[data-font="sans"] {
+[data-font="Sans Serif"] {
   font-family: var(--sans);
 } 
 
-[data-font="serif"] {
+[data-font="Serif"] {
   font-family: var(--serif);
 }
 
-[data-font="mono"] {
+[data-font="Mono"] {
   font-family: var(--mono);
 }
 
@@ -94,6 +94,9 @@ body {
   background-color: var(--black-600);
 }
 
+[data-theme="dark"] p a {
+  color: var(--gray-400);
+}
 
 h1 {
   font-size: 3.5rem;
@@ -103,24 +106,33 @@ h2 {
   font-size: 1.3rem;
   position: relative;
   font-style: italic;
-  margin: 2.8rem auto;
+  margin: 2.8rem 0;
+  width: 100%;
+  z-index: 0;
 }
+
 
 h2::after {
   content: '';
   display: block;
   position: absolute;
   background-color: var(--gray-300);
-  width: 85%;
+  width: calc(100% - 4.5rem);
   height:1px;
-  right: 0;
   top: 50%;
+  right: 0;
+  z-index: -3;
 }
 
 h3 {
   color: var(--gray-400);
   font-weight: 400;
   font-size: 1rem;
+}
+
+h3 span {
+  color: var(--purple);
+  font-weight: 700;
 }
 
 ul {
@@ -333,4 +345,30 @@ audio::-webkit-media-controls-panel {
   display: block;
   position: absolute;
   left: 40%;
+}
+
+.source {
+  margin: 35px auto;
+}
+
+p a {
+  color: var(--gray-400);
+  position: relative;
+}
+
+p a::after {
+  content: '';
+  background-image: url('/src/assets/tabler_external-link.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  top: 0;
+  margin-left: 5px;
+}
+
+hr {
+  margin-top: 50px;
 }

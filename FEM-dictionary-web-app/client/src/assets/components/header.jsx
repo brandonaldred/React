@@ -21,7 +21,7 @@ export default function Header() {
     setTheme(bool ? 'light' : 'dark')
   }
 
-  const [ font, setFont ] = useState('sans')
+  const [ font, setFont ] = useState('Sans Serif')
 
   document.documentElement.dataset.theme = theme
   document.documentElement.dataset.font = font
@@ -29,9 +29,9 @@ export default function Header() {
     const FontOptions = () => { 
         return(
           <div className="fontOptions">
-            <a data-font="sans" onClick={() => {}}>Sans Serif</a>
-            <a data-font="serif" onClick={() => {}}>Serif</a>
-            <a data-font="mono" onClick={() => {}}>Mono</a>
+            <a data-font="Sans Serif" onClick={() => {setFont('Sans Serif'); setShowOptions(!showOptions)}}>Sans Serif</a>
+            <a data-font="Serif" onClick={() => {setFont('Serif'); setShowOptions(!showOptions)}}>Serif</a>
+            <a data-font="Mono" onClick={() => {setFont('Mono'); setShowOptions(!showOptions)}}>Mono</a>
           </div>
         )
     }
@@ -40,7 +40,7 @@ export default function Header() {
         <header>
             <img className="logo" src={logo} alt="Dictionary Web App" />
             <div className="font-select">
-                <button data-font={font} onClick={() => {setShowOptions(!showOptions)}}>Sans Serif <img src={arrow}  /></button>
+                <button data-font={font} onClick={() => {setShowOptions(!showOptions)}}>{font} <img src={arrow}  /></button>
                 {showOptions && <FontOptions />}
             </div>
             <label className="switch">

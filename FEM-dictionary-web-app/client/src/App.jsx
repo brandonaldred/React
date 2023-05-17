@@ -22,6 +22,7 @@ function App() {
           fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
           .then(res => res.json())
           .then(data => setDefinition(data))
+          .catch(err => console.log('there was an error' + err))
         }
         setDataFetch(false)
         setLoading(false)
