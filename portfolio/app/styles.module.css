@@ -1,0 +1,56 @@
+.avatarContainer {
+    position: relative;
+    display: flex;
+}
+.avatar {
+    width: 100%;
+    max-width:600px;
+}
+
+.illustration, .design, .marketing, .programming {
+    position: absolute;
+}
+
+.illustration {
+    max-width: 75px;
+    top: 20%;
+    left: 15%;
+}
+
+.design {
+    width: 50px;
+    bottom: 20%;
+    left: 20%;
+}
+
+.marketing {
+    width: 65px;
+    top: 25%;
+    right: 25%;
+}
+
+.programming {
+    width: 80px;
+    bottom: 25%;
+    right: 20%;
+}
+
+.heroText {
+    color: var(--white);
+}
+
+.heroText h3 {
+    color: var(--lt-gray);
+    font-weight: 300;
+    padding-bottom: var(--xs-p);
+    margin-bottom: var(--xs-p);
+}
+
+.heroText h3::after {
+    content: '';
+    display: block;
+    margin-top: var(--xs-p);
+    width: 85%;
+    height: 1px;
+    background-color: var(--dk-gray);
+}

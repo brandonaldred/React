@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+
+:root {
+  --strength: #FEAE36;
+  --cardio: #FE367E;
+  --core: #A583FF;
+  --stretch: #36C3FE;
+  --rest: #7C7C7C;
+  --white: #ffffff;
+  --black: #000000;
+  --off-black: #222222;
+  --dark: #161616;
+  --dark-gray: #7D7D7D;
+  --gray:#B4B4B4;
+  --light-gray: #EEEEEE;
+  --border-small: 5px;
+  --border-medium: 15px;
+  --border-large: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--off-black);
+  color: #fff;
+}
+
+.App {
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+
+[data-background="strength"] {
+  background: var(--strength);
+}
+
+[data-background="stretch"] {
+  background-color: var(--stretch);
+}
+
+[data-background="cardio"] {
+  background-color: var(--cardio);
+}
+
+[data-background="core"] {
+  background-color: var(--core);
+}
+
+[data-background="rest"] {
+  background-color: var(--rest);
+}
+
+[data-color="strength"] {
+  color: var(--strength);
+}
+
+[data-color="stretch"] {
+  color: var(--stretch);
+}
+
+[data-color="cardio"] {
+  color: var(--cardio);
+}
+
+[data-color="core"] {
+  color: var(--core);
+}
+
+[data-color="rest"] {
+  color: var(--rest);
+}
+
+[data-color="black"] {
+ color: var(--black);
+}

@@ -9,9 +9,9 @@ export default function Header () {
             <a href="/"><img src={logo.src}  alt="Brandon Aldred" /></a>
             <nav>
                 <ul>
-                    <li><a href="#">portfolio</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="/portfolio">portfolio</a></li>
+                    <li><a href="/about">about</a></li>
+                    <li><a href="/contact">contact</a></li>
                 </ul>
             </nav>
         </header>
